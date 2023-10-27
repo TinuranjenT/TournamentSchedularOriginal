@@ -1,0 +1,59 @@
+<div class="tournament-schedule">
+    <div class="input-team">
+        <label for="teamname">Enter Team Names:</label>
+        <input type="text" id="teamname" [(ngModel)]="newTeamName" placeholder="Team Name">
+        <button (click)="addTeam()" class="addTeam">Add Team</button>
+        <!-- <div *ngIf="error">
+            <p>{{error}}</p>;
+        </div>
+        <div *ngIf="success">
+          <p>{{success}}</p>
+        </div> -->
+        <!-- <button (click)="deleteTeam()" class="deleteTeam">Delete Team</button>  -->
+    </div>
+
+    <div class="team-list">
+        <ol>
+          <li *ngFor="let team of teams">
+                 {{team}}
+          </li>
+        </ol>
+      </div>
+
+      <div class="schedule-option">
+        <label for="startDate">Select the Starting Date:</label>
+        <input type="date" id="startDate" [(ngModel)]="startingDate">
+        <button (click)="generateMatchSchedule(startingDate)">Generate Schedule</button>
+      </div>
+<!-- 
+      <div class="match-schedule">
+        
+        <ol>
+            <li *ngFor="let match of matches">
+              {{i+1}}.{{match}}
+                <span id="team1">{{match.team1}}</span> vs <span id="team2">{{match.team2}}</span> on {{match.matchDate | date: 'MMMM dd, YYYY'}}
+            </li>
+        </ol>
+      </div> -->
+      <div class="getSchedule">
+      <button (click)="getData()">Get Schedule</button>
+      </div>
+
+      <div>
+        <table border="1">
+          <tr>
+            <td>Id</td>
+            <td>Team 1</td>
+            <td>Team 2</td>
+            <td>Match Date</td>
+          </tr>
+          <tr *ngFor="let items of data">
+             <td>{{items.id}} </td>
+             <td>{{items.team1}}</td>
+            <td>{{items.team2}}</td>
+            <td>{{items.currentDate}}</td>
+          </tr>
+        </table> 
+        
+      </div>
+</div>
